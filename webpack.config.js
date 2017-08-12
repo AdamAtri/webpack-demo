@@ -37,6 +37,8 @@ const commonConfig = merge([
   },
   // include linting by default
   parts.lintJavaScript({ include: PATHS.app }),
+  // include style bundling by default
+  parts.loadCSS(),
 ]);
 
 const productionConfig = merge([ ]);

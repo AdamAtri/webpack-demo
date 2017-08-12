@@ -1,6 +1,7 @@
 //  'webpack-parts' abstracts portions of the 'webpack-config'
 //  to aid in composibility
 
+// Development Server
 exports.devServer = ({ host, port } = { }) => ({
   devServer: {
     // Enable history API fallback so HTML5 history based routing will work.
@@ -20,6 +21,7 @@ exports.devServer = ({ host, port } = { }) => ({
   },
 });
 
+//  Linting by ESLint
 exports.lintJavaScript = ({ include, exclude, options }) => ({
   module: {
     rules: [
@@ -34,6 +36,23 @@ exports.lintJavaScript = ({ include, exclude, options }) => ({
         //  installed locally.
         loader: 'eslint-loader',
         options: options || { emitWarning: true, },
+      },
+    ],
+  },
+});
+
+//  Style bundling
+exports.loadCSS = ({ include, exclude } = { }) => ({
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        include,
+        exclude,
+        // Loaders are transformations that are applied to source files, and
+        //  return the new source. They can be chained together like a Unix pipe.
+        //  They evaluate from *right to left*.
+        use: [ 'style-loader', 'css-loader' ], // read: styleLoader(cssLoader(input));
       },
     ],
   },
