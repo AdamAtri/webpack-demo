@@ -1,3 +1,7 @@
+// ESLint Configuration
+//  A very basic ESLint configuration that supports syntax for browsers,
+//  commonjs, es6 and node. It also provides a set of stylistic rules.
+
 module.exports = {
   env: {
     browser: true,

@@ -50,6 +50,20 @@ const devlopmentConfig = () => {
       host: process.env.HOST || '0.0.0.0', // defaults to `localhost`
       port: process.env.PORT, // defaults to 8080
     },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          enforce: 'pre',
+          // Using the <eslint-loader> provides live linting while the
+          //  WDS is running (`yarn start`)
+          // !! before using <eslint-loader>, make sure that <eslint> is
+          //  installed locally.
+          loader: 'eslint-loader',
+          options: { emitWarning: true, },
+        },
+      ],
+    },
   };
   return Object.assign({}, commonConfig, config);
 };
