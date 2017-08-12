@@ -49,6 +49,12 @@ const devlopmentConfig = () => {
       // as 0.0.0.0 is available to all network devices
       host: process.env.HOST || '0.0.0.0', // defaults to `localhost`
       port: process.env.PORT, // defaults to 8080
+
+      // WDS provides an overlay for capturing warnings and errors
+      overlay: {
+        errors: true,
+        warnings: true,
+      },
     },
     module: {
       rules: [
