@@ -1,6 +1,6 @@
 
 export default (text = 'Hello World') => {
   const elem = document.createElement('div');
-  elem.innerHTML = text;
+  elem.innerHTML = '<h1>'+text+'</h1>';
   return elem;
-};
+}
