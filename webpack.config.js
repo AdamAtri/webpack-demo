@@ -16,7 +16,7 @@ const commonConfig = {
   output: {
     path: PATHS.build,
     // [name] is a token that will be replaced when the string is evaluated.
-    filename: '[name].js'
+    filename: '[name].js',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -25,7 +25,7 @@ const commonConfig = {
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
         messages: ['Your application is running on http://localhost:8080.', 'You lucky dog.'],
-        notes: ['Some additional notes... for what ? SUCCESS.']
+        notes: ['Some additional notes... for what ? SUCCESS.'],
       },
 
     }),
